@@ -34,7 +34,7 @@
       <p class="zhu">注:认证费用根据认证等级自动显示,不可更改</p>
       <div class="do">
         <form
-          action="/IC/api/faOrder/h5addorder"
+          action="/api/faOrder/h5addorder"
           method="post"
           ref="forms"
         >
@@ -57,6 +57,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: "login",
   data() {
@@ -73,12 +74,13 @@ export default {
     };
   },
   created() {
+    axios.defaults.headers.common['token'] =localStorage.getItem('token');
     this.userid = localStorage.getItem("userid");
     if (this.$route.params.id) {
       this.passlogin = false;
     }
     // 认证费用
-    this.$axios.post("/IC/api/faCertificateInfo/list").then(res => {
+    this.$axios.post("/api/faCertificateInfo/list").then(res => {
       if (res.data.code == 0) {
         this.rows = res.data.rows;
         this.vipfee = this.rows[0].fee;

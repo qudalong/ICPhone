@@ -174,6 +174,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: "login",
   data() {
@@ -228,6 +229,7 @@ export default {
     };
   },
   created() {
+    axios.defaults.headers.common['token'] =localStorage.getItem('token');
     this.$route.params.type == 0 ? (this.isUser = true) : (this.isUser = false);
     localStorage.setItem("backType", 2);
     // 个人信息

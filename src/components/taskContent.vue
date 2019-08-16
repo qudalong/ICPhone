@@ -20,18 +20,18 @@
 				</span>
 
 				<!-- <img src="../assets/star.png"
-	
-	          v-for="n of this.starnum"
-	
-	          v-show="starnum != 0"
-	
-	          class="star"
-	
-	          alt
-	
-	          srcset
-	
-	        /> -->
+
+          v-for="n of this.starnum"
+
+          v-show="starnum != 0"
+
+          class="star"
+
+          alt
+
+          srcset
+
+        /> -->
 			</div>
 
 			<div class="wrapper">
@@ -42,9 +42,11 @@
 				</div>
 
 				<p>类型: {{ projecttype }}</p>
+
 				<p v-show="projecttype == '兼职需求' || projecttype == '全职需求'">
 					工作地点: {{ info.workaddress }}
 				</p>
+
 				<p
 					v-show="
 						projecttype == '兼职需求' ||
@@ -57,6 +59,7 @@
 				>
 					发布时间: {{ info.updatetime }}
 				</p>
+
 				<p
 					v-show="
 						projecttype == '宝贝需求' ||
@@ -75,50 +78,81 @@
 
 					<span>详细信息</span>
 				</div>
+
 				<p>联系人: {{ info.telName }}</p>
+
 				<p v-show="projecttype == '咨询需求'">咨询种类: {{ info.categoryZx }}</p>
+
 				<p v-show="projecttype == '宝贝需求'">宝贝种类: {{ info.typeBb }}</p>
+
 				<p v-show="projecttype == '宝贝需求'">宝贝名称: {{ info.name }}</p>
+
 				<p v-show="projecttype == '宝贝需求'">宝贝介绍: {{ info.content }}</p>
+
 				<p v-show="projecttype == '宝贝需求'">
 					交易方式: {{ info.tradeType == 0 ? '直接交易' : '平台担保' }}
 				</p>
+
 				<p v-show="projecttype == '咨询需求'">内容范围: {{ info.content }}</p>
+
 				<p v-show="projecttype == '咨询需求'">合作方式: {{ info.cooperateWay }}</p>
+
 				<p v-show="projecttype == '项目外包'">项目名称: {{ info.projectName }}</p>
+
 				<p v-show="projecttype == '项目外包'">项目简介: {{ info.content }}</p>
+
 				<p v-show="projecttype == '项目外包'">项目周期: {{ info.cycle }}</p>
+
 				<p v-show="projecttype == '项目外包'">项目任务: {{ info.task }}</p>
+
 				<p v-show="projecttype == '项目外包'">项目预算: {{ info.budget }}</p>
+
 				<p v-show="projecttype == '项目外包'">项目交付标准: {{ info.standard }}</p>
-				<p v-show="projecttype == '项目外包'">项目文档: {{ info.viewCount || 0 }}</p>
+
+				<p v-show="projecttype == '项目外包'">
+					项目文档: {{ info.viewCount == 0 ? '不需要' : '需要' }}
+				</p>
+
 				<p v-show="projecttype == '培训需求'">职能: {{ info.categoryZn }}</p>
+
 				<p v-show="projecttype == '培训需求'">产品方向: {{ info.chanpin }}</p>
+
 				<p v-show="projecttype == '兼职需求' || projecttype == '全职需求'">
 					职能: {{ info.functions }}
 				</p>
+
 				<p v-show="projecttype == '兼职需求' || projecttype == '全职需求'">
 					产品方向: {{ info.productDir }}
 				</p>
+
 				<p v-show="projecttype == '培训需求'">培训说明: {{ info.contentTraining }}</p>
+
 				<p v-show="projecttype == '兼职需求' || projecttype == '全职需求'">
 					技能关键字: {{ info.skill }}
 				</p>
+
 				<p v-show="projecttype == '兼职需求' || projecttype == '全职需求'">
 					熟悉的EDA工具: {{ info.edaTool }}
 				</p>
+
 				<p v-show="projecttype == '兼职需求' || projecttype == '全职需求'">
 					经历技能介绍: {{ info.experience }}
 				</p>
+
 				<p v-show="projecttype == '兼职需求'">工作时间: {{ info.worktime }}</p>
+
 				<p v-show="projecttype == '兼职需求'">工作模式: {{ info.workmode }}</p>
+
 				<p v-show="projecttype == '兼职需求'">工作地点: {{ info.workaddress }}</p>
+
 				<p v-show="projecttype == '兼职需求' || projecttype == '全职需求'">
 					期望待遇: {{ info.pay }}
 				</p>
+
 				<p v-show="projecttype == '兼职需求' || projecttype == '全职需求'">
 					最早开工时间: {{ info.startTime }}
 				</p>
+
 				<p
 					v-show="
 						projecttype == '兼职需求' ||
@@ -129,9 +163,11 @@
 				>
 					可预约人数: {{ info.maxnum || 0 }}
 				</p>
+
 				<p v-show="projecttype == '兼职需求' || projecttype == '全职需求'">
 					有效期: {{ info.validity }}个月
 				</p>
+
 				<p v-show="projecttype == '兼职需求'">其他条件: {{ info.other || '无' }}</p>
 			</div>
 
@@ -259,41 +295,43 @@
 		<!-- 留言板 -->
 
 		<!-- 	<van-dialog
-	
-				v-model="blackboard"
-	
-				title="预约留言"
-	
-				show-cancel-button
-	
-				show-confirm-button
-	
-				@confirm="liuyan"
-	
-			>
-	
-				<textarea
-	
-					class="textarea"
-	
-					v-model="message"
-	
-					placeholder="请输入留言"
-	
-					cols="30"
-	
-					rows="5"
-	
-				></textarea>
-	
-			</van-dialog> -->
+
+v-model="blackboard"
+
+title="预约留言"
+
+show-cancel-button
+
+show-confirm-button
+
+@confirm="liuyan"
+
+>
+
+<textarea
+
+class="textarea"
+
+v-model="message"
+
+placeholder="请输入留言"
+
+cols="30"
+
+rows="5"
+
+></textarea>
+
+</van-dialog> -->
 	</div>
 </template>
 
 <script>
+import axios from 'axios';
 export default {
 	name: 'login',
 	created() {
+		axios.defaults.headers.common['token'] = localStorage.getItem('token');
 		this.projectID = this.$route.params.pid;
 		this.projecttype = this.$route.params.type;
 		this.userid = this.$route.params.userid;
@@ -372,7 +410,9 @@ export default {
 		yuyue() {
 			var userid = localStorage.getItem('userid');
 			if (!userid) {
-				this.$router.push({ name: 'login' });
+				this.$router.push({
+					name: 'login'
+				});
 			} else {
 				this.getinfo();
 				this.$axios
@@ -399,7 +439,9 @@ export default {
 								return;
 							}
 						} else if (res.data.code == 500) {
-							this.$router.push({ name: 'login' });
+							this.$router.push({
+								name: 'login'
+							});
 							return;
 						} else {
 							this.$toast(res.data.msg);
@@ -420,10 +462,10 @@ export default {
 			}
 			this.$axios
 				.post('/api/faApply/add', {
-					// 					userId: localStorage.getItem('userid'),
-					// 					type: this.projecttype,
-					// 					needId: this.projectID,
-					// 					content: this.yyValue,
+					// 		userId: localStorage.getItem('userid'),
+					// 		type: this.projecttype,
+					// 		needId: this.projectID,
+					// 		content: this.yyValue,
 
 					userId: localStorage.getItem('userid'),
 					type: this.projecttype,
@@ -451,7 +493,9 @@ export default {
 		call() {
 			var userid = localStorage.getItem('userid');
 			if (!userid) {
-				this.$router.push({ name: 'login' });
+				this.$router.push({
+					name: 'login'
+				});
 			} else {
 				this.getinfo();
 				this.$axios
@@ -523,7 +567,9 @@ export default {
 		topingjia() {
 			var userid = localStorage.getItem('userid');
 			if (!userid) {
-				this.$router.push({ name: 'login' });
+				this.$router.push({
+					name: 'login'
+				});
 			} else {
 				this.$router.push({
 					name: 'pingjia',
@@ -569,7 +615,7 @@ export default {
 		getStarts() {
 			this.$axios
 				.post('/api/faUser/info', {
-					 id:localStorage.getItem('fbUser')
+					id: localStorage.getItem('fbUser')
 				})
 				.then(result => {
 					if (result.data.code == 0) {
@@ -638,6 +684,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
+
 <style scoped>
 .author {
 	display: flex;

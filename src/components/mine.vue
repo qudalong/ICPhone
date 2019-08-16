@@ -18,38 +18,34 @@
         </div>
       </div>
       <!-- <div> -->
-      <router-link to="/minefabu">
-        <img src="../assets/fabu.png" width="24" height="24" />
+      <a @click="minefabu">
+        <img src="../assets/dh.png" width="24" height="24" />
         <van-cell title="我的发布" is-link to="index" />
-      </router-link>
-      <router-link to="/minetoudi">
-        <img src="../assets/toudi.png" width="24" height="24" />
+      </a>
+      <a @click="minetoudi">
+        <img src="../assets/td.png" width="24" height="24" />
         <van-cell title="我的投递" is-link to="index" />
-      </router-link>
-      <router-link to="/minefw">
-        <img src="../assets/vipfuwu.png" width="24" height="24" />
+      </a>
+      <a @click="minefw">
+        <img src="../assets/hy.png" width="24" height="24" />
         <van-cell title="会员服务" is-link to="index" />
-      </router-link>
-      <router-link to="/minerenzheng">
-        <img src="../assets/renzheng.png" width="24" height="24" />
+      </a>
+      <a @click="minerenzheng">
+        <img src="../assets/rz.png" width="24" height="24" />
         <van-cell title="认证中心" is-link to="index" />
-      </router-link>
-      <router-link to="/message">
-        <img src="../assets/renzheng.png" width="24" height="24" />
+      </a>
+      <a @click="message">
+        <img src="../assets/xx.png" width="24" height="24" />
         <van-cell title="消息中心" is-link to="index" />
-      </router-link>
+      </a>
       <a @click="wanshan">
-        <img src="../assets/wanshan.png" width="24" height="24" />
+        <img src="../assets/ws.png" width="24" height="24" />
         <van-cell title="完善信息" is-link to="index" />
       </a>
-      <!-- <router-link to="/mineinfor">
-        <img src="../assets/infor.png" width="24" height="24" />
-        <van-cell title="消息中心" is-link to="index" />
-      </router-link> -->
-      <router-link to="/mineset">
-        <img src="../assets/set.png" width="24" height="24" />
+      <a @click="mineset">
+        <img src="../assets/sz.png" width="24" height="24" />
         <van-cell title="设置" is-link to="index" />
-      </router-link>
+     </a>
     </div>
     <div class="foot">
         <div class="item" @click="task">
@@ -69,10 +65,12 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: "login",
   created() {
     // 个人信息
+    axios.defaults.headers.common['token'] =localStorage.getItem('token');
     this.$axios.post("/api/faUser/info",{
       id:localStorage.getItem("userid")
     }).then(res => {
@@ -103,12 +101,43 @@ export default {
       un: true,
       u: true,
       userType:"",
-      isCertificate:""
+      isCertificate:"",
+      type:1
     };
   },
   methods: {
+    minefabu(){
+      this.$router.replace({
+        name:"minefabu"
+      })
+    },
+    minetoudi(){
+      this.$router.replace({
+        name:"minetoudi"
+      })
+    },
+    minefw(){
+      this.$router.replace({
+        name:"minefw"
+      })
+    },
+    minerenzheng(){
+      this.$router.replace({
+        name:"minerenzheng"
+      })
+    },
+    message(){
+      this.$router.replace({
+        name:"message"
+      })
+    },
+    mineset(){
+      this.$router.replace({
+        name:"mineset"
+      })
+    },
     wanshan(){
-      this.$router.push({
+      this.$router.replace({
         name:"minewanshan",
         params:{
           type:this.faUser.type

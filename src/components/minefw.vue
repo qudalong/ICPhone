@@ -37,6 +37,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: "login",
   data() {
@@ -48,6 +49,7 @@ export default {
     };
   },
   created() {
+    axios.defaults.headers.common['token'] =localStorage.getItem('token');
     this.userid = localStorage.getItem("userid");
   },
   methods: {

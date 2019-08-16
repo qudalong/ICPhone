@@ -33,9 +33,11 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: "login",
   created() {
+    axios.defaults.headers.common['token'] =localStorage.getItem('token');
     this.getFabu();
     this.certification = localStorage.getItem("iscerficate");
   },

@@ -27,12 +27,14 @@
 </template>
 
 <script>
+import axios from 'axios'
 //星星的图片路径
 var starOnImg  = require('../assets/star.png');
 var starOffImg  = require('../assets/starG.png');
 export default {
   name: "login",
   created() {
+     axios.defaults.headers.common['token'] =localStorage.getItem('token');
     this.projecttype = this.$route.params.type;
     this.projectID = this.$route.params.pid;
     // this.userid = this.$route.params.fbid;

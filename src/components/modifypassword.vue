@@ -27,6 +27,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 // Vue.component(Field.name, Field);
 export default {
   name: "login",
@@ -39,6 +40,9 @@ export default {
       time:"验证码",
       codeSended:false
     };
+  },
+  created() {
+    axios.defaults.headers.common['token'] =localStorage.getItem('token');
   },
   methods: {
     // 验证码
